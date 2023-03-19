@@ -1,3 +1,4 @@
+// Bismillahirahmanirahiimi
 const contact = require(./contact)
 
 const main = async() =>{
