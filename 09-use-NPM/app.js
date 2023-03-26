@@ -7,14 +7,16 @@ const rl = readline.createInterface({
 
 //mengecek dan membuat folder data
 const dirPath = "./data";
-if (!fs.existsSync(dirPath)) {
-  fs.mkdirSync(dirPath);
-}
-//membuat file contact hasil
+!fs.existsSync(dirPath) ? fs.mkdirSync(dirPath) : "";
+//membuat file contact hasil ( Pengkondisian if direfactor dengan menggunakan
+//operator ternary)
 const dataPath = "./data/contacts.json";
-if (!fs.existsSync(dataPath)) {
-  fs.writeFileSync(dataPath, "[]", "utf-8");
-}
+!fs.existsSync(dataPath) ? fs.writeFileSync(dataPath, "[]", "utf-8") : "";
+
+// const dataPath = "./data/contacts.json";
+// if (!fs.existsSync(dataPath)) {
+//   fs.writeFileSync(dataPath, "[]", "utf-8");
+// }
 // merubah callback dengan menggunakan konsep async await tapi sebelum itu,
 // kita harus menbungkus pertanyaanya dengan menggunakan promise
 const tulisPertanyaan = (pertanyaan) => {
